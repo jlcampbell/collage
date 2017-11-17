@@ -1,0 +1,20 @@
+.dragable {
+  width: 100px;
+  height: 50px;
+  background-color: black;
+  position: absolute;
+
+  cursor: move;
+}
+.add {
+  cursor: pointer;
+  padding: 20px;
+  font-size: 40px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 30px;
+  box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+  margin: 50px;
+
+}
