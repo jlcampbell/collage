@@ -1,4 +1,4 @@
-dragElement(document.getElementById(("mydiv")));
+
 
 function dragElement(elmnt) {
   var pos1 = {"x":0,"y":0}, pos2 = {"x":0,"y":0};
