@@ -1,7 +1,13 @@
 let add = document.getElementById("add");
+let addCanvas = document.getElementById("addCanvas");
 let rectangleCount = 0;
-function addRectangle() {
-  let rect = document.getElementById("rectangleTemplate");
+let rect = undefined;
+function addRectangle(rectType) {
+  if (rectType == "div"){
+    rect = document.getElementById("rectangleTemplate");
+} else {
+    rect = document.getElementById("canvasTemplate");
+}
   rectangleCount += 1;
   let clone = document.importNode(rect.content, true);
   clone.querySelector(".dragable").id = rectangleCount.toString();
@@ -9,5 +15,8 @@ function addRectangle() {
   dragElement(document.getElementById(rectangleCount.toString()));
 }
 add.onclick = function(){
-  addRectangle();
+  addRectangle("div");
+}
+addCanvas.onclick = function(){
+  addRectangle("canvas");
 }

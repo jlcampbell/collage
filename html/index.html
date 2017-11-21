@@ -7,10 +7,12 @@
 </head>
 <body>
   <div id = "add" class="add">+</div>
+
   <div id = "addScrap" class="add">addScrap</div>
   <div id = "area"></div>
   <div id = "modal" class = "modal">
     <div id = "modal-content" class = "modal-content">
+      <div id = "addCanvas" class="add">crop</div>
       <span id = "close-btn" class="close">&times;</span>
       <input type="file" id="input">
       <img>
@@ -18,9 +20,9 @@
   </div>
 <template id = "rectangleTemplate">
   <div class="dragable"></div>
-
-
-
+</template>
+<template id = "canvasTemplate">
+  <canvas class="dragable">
 </template>
 </body>
 <script src="../js/dragElement.js"></script>
