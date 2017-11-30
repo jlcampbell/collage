@@ -2,7 +2,7 @@ let add = document.getElementById("add");
 let addCanvas = document.getElementById("addCanvas");
 let rectangleCount = 0;
 let rect = undefined;
-function addRectangle(rectType) {
+function addRectangle(rectType, location) {
   if (rectType == "div"){
     rect = document.getElementById("rectangleTemplate");
 } else {
@@ -10,13 +10,14 @@ function addRectangle(rectType) {
 }
   rectangleCount += 1;
   let clone = document.importNode(rect.content, true);
-  clone.querySelector(".dragable").id = rectangleCount.toString();
-  document.getElementById("area").appendChild(clone);
-  dragElement(document.getElementById(rectangleCount.toString()));
+  let id = rectangleCount.toString();
+  clone.querySelector(".dragable").id = id;
+  document.getElementById(location).appendChild(clone);
+  dragElement(document.getElementById(id));
 }
 add.onclick = function(){
-  addRectangle("div");
+  addRectangle("div", "area");
 }
 addCanvas.onclick = function(){
-  addRectangle("canvas");
+  addRectangle("canvas", "modal-content");
 }
