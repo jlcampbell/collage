@@ -3,7 +3,7 @@
 function dragElement(elmnt) {
   var pos1 = {"x":0,"y":0}, pos2 = {"x":0,"y":0};
   console.log(elmnt);
-    elmnt.onmousedown = dragMouseDown;
+  elmnt.onmousedown = dragMouseDown;
 
   function dragMouseDown(e) {
     e = e || window.event;

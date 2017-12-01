@@ -1,7 +1,8 @@
 let add = document.getElementById("add");
-let addCanvas = document.getElementById("addCanvas");
+let addCanvas = document.getElementById("crop");
 let rectangleCount = 0;
 let rect = undefined;
+
 function addRectangle(rectType) {
   if (rectType == "div"){
     rect = document.getElementById("rectangleTemplate");
