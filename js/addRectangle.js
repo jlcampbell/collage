@@ -2,8 +2,12 @@ let add = document.getElementById("add");
 let addCanvas = document.getElementById("crop");
 let rectangleCount = 0;
 let rect = undefined;
+<<<<<<< HEAD
 
 function addRectangle(rectType) {
+=======
+function addRectangle(rectType, location) {
+>>>>>>> ba3cb955a7b97367c4449a4970869693642b4e00
   if (rectType == "div"){
     rect = document.getElementById("rectangleTemplate");
 } else {
@@ -11,13 +15,14 @@ function addRectangle(rectType) {
 }
   rectangleCount += 1;
   let clone = document.importNode(rect.content, true);
-  clone.querySelector(".dragable").id = rectangleCount.toString();
-  document.getElementById("area").appendChild(clone);
-  dragElement(document.getElementById(rectangleCount.toString()));
+  let id = rectangleCount.toString();
+  clone.querySelector(".dragable").id = id;
+  document.getElementById(location).appendChild(clone);
+  dragElement(document.getElementById(id));
 }
 add.onclick = function(){
-  addRectangle("div");
+  addRectangle("div", "area");
 }
 addCanvas.onclick = function(){
-  addRectangle("canvas");
+  addRectangle("canvas", "modal-content");
 }

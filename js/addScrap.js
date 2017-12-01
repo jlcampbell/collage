@@ -25,11 +25,9 @@ window.onclick = function(event){
 //  console.log("input change");
 //  handleFiles(selectedFile);
 //}
-var img = document.createElement("img");
+
 var inputElement = document.getElementById("input");
 inputElement.addEventListener("change", handleFiles, false);
-
-
 
 function handleFiles() {
   var fileList = this.files; /* now you can work with the file list */
@@ -43,6 +41,7 @@ function openFiles(files) {
     if (!file.type.startsWith('image/')){ continue }
 
     var img = document.createElement("img");
+    img.id="full-image";
     img.classList.add("obj");
     img.file = file;
     modalContent.appendChild(img); // Assuming that "preview" is the div output where the content will be displayed.
