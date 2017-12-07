@@ -4,25 +4,40 @@
 //set full image variable
 let cropBtn = document.getElementById("save");
 cropBtn.addEventListener("click", function (){
-  //these preparatory variables can't be defined until the corresponding canvas square is defined
-  //the following needs work:
+  console.log("listener listening")
+
   //need to set width equal to scrollwidth
   let fullImage = document.getElementById("full-image");
+  let fullImagePos = fullImage.getBoundingClientRect();
+
   //set cropped image variable
-  let croppedImageOnCanvas = document.getElementById("1");
+  //consider making the cropping property removable
+  let croppedImageOnCanvas = document.getElementById("croppingRectangle");
+  let cIOCPos = croppedImageOnCanvas.getBoundingClientRect();
+
+  let cIOCPosRelative = {};
+  cIOCPosRelative.X = cIOCPos.left - fullImagePos.left;
+
+  cIOCPosRelative.Y = cIOCPos.top-fullImagePos.top;
+
   let context = croppedImageOnCanvas.getContext('2d');
-  //call crop function
-  var sourceX = 150;
-  var sourceY = 0;
-  var sourceWidth = 100;
-  var sourceHeight = 50;
-  var destWidth = 400;
-  var destHeight = 200;
+  //set actual width of canvas to the css width
+  croppedImageOnCanvas.width=croppedImageOnCanvas.scrollWidth;
+  //set actual height to css height
+  croppedImageOnCanvas.height=croppedImageOnCanvas.scrollHeight;
+  //sourceX and sourceY need to be the relative location of the rectangle
+  //(distance from fullImageX 0 and fullImageY 0)
+  var sourceX = cIOCPosRelative.X;
+  var sourceY = cIOCPosRelative.Y;
+  var sourceWidth = croppedImageOnCanvas.width;
+  var sourceHeight = croppedImageOnCanvas.height;
+  var destWidth = croppedImageOnCanvas.width;
+  var destHeight = croppedImageOnCanvas.height;
   var destX = 0;
   var destY = 0;
-  //document.getElementById("placeForimg").appendChild(imageObj);
-  //context.drawImage(fullImage, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
-  context.drawImage(fullImage, destX, destY);
+
+  context.drawImage(fullImage, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+  console.log(sourceX+" , "+sourceY)
 
 }, false);
 //sourc

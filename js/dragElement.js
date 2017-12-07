@@ -4,6 +4,7 @@ function dragElement(elmnt) {
   var pos1 = {"x":0,"y":0}, pos2 = {"x":0,"y":0};
   console.log(elmnt);
   elmnt.onmousedown = dragMouseDown;
+  return (elmnt.onmousedown);
 
   function dragMouseDown(e) {
     e = e || window.event;
@@ -31,5 +32,6 @@ function dragElement(elmnt) {
     /* stop moving when mouse button is released:*/
     document.onmouseup = null;
     document.onmousemove = null;
+    return (pos2);
   }
 }
